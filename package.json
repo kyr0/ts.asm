@@ -1,6 +1,9 @@
 {
   "name": "asm.ts",
   "version": "0.0.1",
+  "publishConfig": {
+    "access": "public"
+  },
   "type": "module",
   "description": "A X86_64 assember written in TypeScript. Chaining API. Supports macros. Advanced instruction support.",
   "keywords": [
