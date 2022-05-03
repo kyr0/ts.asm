@@ -1,4 +1,5 @@
 import { asm } from '../asm'
+import { Buffer } from 'buffer'
 
 describe('state', () => {
   it('can define a bootsector using macro assembly and instruction pointer', () => {

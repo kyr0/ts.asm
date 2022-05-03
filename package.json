@@ -19,6 +19,7 @@
   "scripts": {
     "clean": "rimraf dist && rimraf dist",
     "build": "ts-node --esm build.ts",
+    "predeploy": "yarn build && yarn test",
     "deploy": "npm publish",
     "test": "jest"
   },

@@ -6,7 +6,7 @@ import DataUninitialized from './DataUninitialized'
 import { Expression } from '../../expression'
 import { Tnumber, Operands, Relative } from '../../operand'
 import { UInt64 } from '../../util'
-import * as fs from 'fs'
+//import * as fs from 'fs'
 import { Buffer } from 'buffer'
 
 class PluginData extends Plugin {
@@ -33,8 +33,10 @@ class PluginData extends Plugin {
           return this.resq(args[0])
         case 'rest':
           return this.rest(args[0])
+        /*
         case 'incbin':
           return this.incbin.apply(this, args)
+        */
       }
     })
   }
@@ -160,6 +162,7 @@ class PluginData extends Plugin {
     return this.resb(length * 10)
   }
 
+  /*
   incbin(filepath: string, offset?: number, len?: number): Data {
     if (typeof offset === 'undefined') {
       // incbin(filepath);
@@ -205,6 +208,7 @@ class PluginData extends Plugin {
       return this.db(buf)
     }
   }
+  */
 }
 
 export default PluginData

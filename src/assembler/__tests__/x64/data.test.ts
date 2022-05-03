@@ -1,4 +1,5 @@
 import { X64 } from '../../index'
+import { Buffer } from 'buffer'
 
 const compile = (_) => _.compile([])
 
@@ -29,6 +30,7 @@ describe('X64', function () {
       })
     })
 
+    /*
     describe('incbin', function () {
       it('.incbin(filepath)', function () {
         const _ = X64()
@@ -48,5 +50,6 @@ describe('X64', function () {
         expect(ins.octets).toEqual([52, 53, 54])
       })
     })
+    */
   })
 })
