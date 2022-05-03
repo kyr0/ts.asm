@@ -1,0 +1,49 @@
+{
+  "name": "asm.ts",
+  "version": "0.0.1",
+  "type": "module",
+  "description": "A x86/x86_64 assember written in TypeScript. Has a chaining API. Supports macros. Advanced instruction support.",
+  "keywords": [
+    "assembler",
+    "macro",
+    "x86",
+    "x64",
+    "x86_64",
+    "TypeScript",
+    "JavaScript"
+  ],
+  "source": "./src/index.tsx",
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "scripts": {
+    "clean": "rimraf dist && rimraf dist",
+    "build": "ts-node --esm build.ts",
+    "deploy": "npm publish",
+    "test": "jest"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kyr0/asm.ts.git"
+  },
+  "author": "Aron Homberg <info@aron-homberg.de>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kyr0/asm.ts/issues"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^16.11.7",
+    "@types/jest": "^27.4.1",
+    "esbuild": "^0.14.38",
+    "rimraf": "^3.0.2",
+    "jest": "^27.5.1",
+    "buffer": "^6.0.3",
+    "ts-jest": "^27.1.3",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.3"
+  }
+}
