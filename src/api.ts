@@ -8,7 +8,7 @@ export interface CodeEncoder extends DataEncoder {
   label(name: string): CodeEncoder
   data(): DataEncoder
   macro: (fn: MacroFunction) => CodeEncoder
-  assemble(): Buffer
+  assemble(format?: 'buffer' | 'arraybuffer'): Buffer | ArrayBuffer
 }
 
 export interface DataEncoder {
@@ -18,7 +18,7 @@ export interface DataEncoder {
   data: () => DataEncoder
   code: () => CodeEncoder
   macro: (fn: MacroFunction) => DataEncoder
-  assemble(): Buffer
+  assemble(format?: 'buffer' | 'arraybuffer'): Buffer | ArrayBuffer
 }
 
 export interface Assembler {

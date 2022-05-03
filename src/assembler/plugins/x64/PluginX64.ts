@@ -1,11 +1,13 @@
 import Plugin from '../Plugin'
 import { InstructionX64 } from './instruction'
-import MNEMONICS from './__generated/__map'
 import MnemonicVariationsX86 from '../x86/MnemonicVariationsX86'
-import { Operands, Register, SIZE, TUiOperand } from '../../operand'
+import { Register, SIZE, TUiOperand } from '../../operand'
 import { IInstructionOptionsX86, InstructionSetX86 } from '../x86/instruction'
 import { Match } from '../x86/MnemonicX86'
 import { OperandsX86 } from '../x86/operand/index'
+import * as MnemonicsGenerated from './__generated'
+
+const MNEMONICS = MnemonicsGenerated.__map.default
 
 class PluginX64 extends Plugin {
   onAsm(asm) {
@@ -48,7 +50,7 @@ class PluginX64 extends Plugin {
   }
 
   mnemonic(name: string, args: any[]) {
-    const variations: MnemonicVariationsX86 = require('./__generated/' + name).default
+    const variations: MnemonicVariationsX86 = MnemonicsGenerated[name].default
 
     let uiOperands: TUiOperand[] = args[0]
     if (uiOperands && !Array.isArray(uiOperands)) {

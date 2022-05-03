@@ -56,10 +56,21 @@ import {
 } from '../x86/atoms'
 import { EXT, INS } from '../x86/consts'
 import { cr0_7, dr0_7, ext_avx, ext_avx2, ext_mmx, ext_sse, ext_sse2, rvm } from './atoms'
+import * as Mnemonics from './mnemonics'
+import avx from './table/avx'
+import common from './table/common'
+import sar from './table/sar'
+import shrd from './table/shrd'
 
-declare const require
+const PartMnemonics = {
+  avx,
+  common,
+  sar,
+  shrd,
+}
+
 function lazy(part: string, mnemonic: string) {
-  return require('./table/' + part).default[mnemonic]
+  return PartMnemonics[part][mnemonic]
 }
 
 export const defaults = {
@@ -208,8 +219,8 @@ _inc.push({ o: 0x40, r: true, ops: [r32], mod: M.COMP | M.LEG })
 export const table = {
   ...t.table,
   // # A-letter
-  aaa: require('./mnemonics/aaa').default,
-  aad: require('./mnemonics/aad').default,
+  aaa: Mnemonics.aaa.default,
+  aad: Mnemonics.aad.default,
   aam: [{ mod: M.OLD }, { o: 0xd40a }, { o: 0xd4, ops: [imm8] }],
   aas: [{ o: 0x3f, mod: M.OLD }],
 

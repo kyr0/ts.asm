@@ -1,5 +1,7 @@
 export const noop = () => {}
-export const extend = require('fast-extend')
+import { extend as fastExtend } from 'fast-extend'
+
+export const extend = fastExtend
 
 export const repeat = (str: string, length: number) => {
   while (str.length < length) str += str

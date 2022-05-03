@@ -568,7 +568,7 @@ export class Relative extends Variable {
 
     if (this.result !== null) result = ' = ' + this.result
 
-    if (this.target instanceof require('./Label').default) {
+    if (this.target instanceof Label) {
       const lbl = this.target as Label
       const off = this.offset ? '+' + new Constant(this.offset).toString() : ''
 

@@ -1,6 +1,6 @@
 {
   "name": "asm.ts",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publishConfig": {
     "access": "public"
   },
@@ -20,12 +20,13 @@
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "scripts": {
-    "clean": "rimraf dist && rimraf dist",
-    "prebuild": "yarn clean && yarn test",
+    "clean": "rimraf dist",
+    "prebuild": "yarn test",
     "build": "ts-node --esm build.ts",
     "postbuild": "tsc",
     "predeploy": "yarn build",
     "deploy": "npm publish",
+    "pretest": "yarn clean",
     "test": "jest"
   },
   "directories": {
@@ -47,6 +48,7 @@
     "@types/jest": "^27.5.0",
     "@types/node": "^16.11.7",
     "esbuild": "^0.14.38",
+    "esbuild-plugin-import-glob": "^0.1.1",
     "jest": "^27.5.1",
     "rimraf": "^3.0.2",
     "ts-jest": "^27.1.3",
