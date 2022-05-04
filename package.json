@@ -37,12 +37,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kyr0/asm.ts.git"
+    "url": "git+https://github.com/kyr0/ts.asm.git"
   },
   "author": "Aron Homberg <info@aron-homberg.de>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kyr0/asm.ts/issues"
+    "url": "https://github.com/kyr0/ts.asm/issues"
   },
   "devDependencies": {
     "@types/jest": "^27.5.0",
