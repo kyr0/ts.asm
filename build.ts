@@ -13,7 +13,7 @@ import { build } from 'esbuild'
       GlobalsPolyfills.default({
         process: true,
         buffer: true,
-        define: { 'process.env.var': '"hello"' }, // inject will override define, to keep env vars you must also pass define here https://github.com/evanw/esbuild/issues/660
+        //define: { 'process.env.var': '"hello"' },
       }),
     ],
   })

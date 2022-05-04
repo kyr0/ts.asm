@@ -223,7 +223,6 @@ export class InstructionSet<TInstruction extends Instruction> extends Expression
     const { matches } = this
     const len = matches.length
 
-    console.log('build() matches', matches)
     this.insn = []
     for (let j = 0; j < len; j++) {
       const match = matches[j]

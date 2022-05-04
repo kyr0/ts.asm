@@ -1,6 +1,6 @@
 {
   "name": "asm.ts",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "publishConfig": {
     "access": "public"
   },
@@ -28,8 +28,8 @@
     "deploy": "yarn test",
     "gen-index": "ts-node --esm genIndex.ts",
     "postdeploy": "npm publish",
-    "test": "yarn node --experimental-vm-modules $(yarn bin jest)",
-    "test:frontend": "yarn node --experimental-vm-modules $(yarn bin jest) -i './src/__tests__'"
+    "test": "yarn node --experimental-vm-modules $(yarn bin jest) -i './src/__tests__'",
+    "test:backend": "yarn node --experimental-vm-modules $(yarn bin jest) -i './src/backend/__tests__'"
   },
   "directories": {
     "test": "test"
@@ -43,13 +43,7 @@
   "bugs": {
     "url": "https://github.com/kyr0/asm.ts/issues"
   },
-  "dependencies": {
-    "asm.ts": "^0.0.2",
-    "buffer": "^6.0.3",
-    "esbuild-jest": "^0.5.0"
-  },
   "devDependencies": {
-    "@babel/plugin-transform-modules-commonjs": "^7.17.9",
     "@esbuild-plugins/node-globals-polyfill": "^0.1.1",
     "@types/jest": "^27.5.0",
     "@types/node": "^16.11.7",
