@@ -9,18 +9,18 @@ Feel free to join me in this; keep calm and PR! :)
 
 ## Install
 
-    npm install asm.ts
+    npm install ts.asm
 
     # or
 
-    yarn add asm.ts
+    yarn add ts.asm
 
 ## Usage
 
-Example in asm.ts:
+Example in `ts.asm` (a.k.a. TSASM):
 
 ```ts
-import { asm } from 'asm.ts'
+import { asm } from 'ts.asm'
 
 // standard-compliant x86_64 machine code
 // this code creates a 512 byte bootloader which ends up
@@ -55,6 +55,34 @@ dw 0xaa55
 To assemple using NASM:
 
     nasm boot_sect.asm -f bin -o boot_sect.bin
+
+## Current status
+
+The x86_64 code generation backend is based on the original ass.js implementation.
+I'm still refactoring it, but the codebase seems to be stable and supporting even advanced
+instruction sets like SSE up to version 4.1. However, there is no guarantee on the stability.
+Please consider this project as a work in progress.
+
+On top of the code generation backend, the TSASM library provides a chaining API.
+The chaining API allows for easy creation of complex assembly code. It features
+macros, code and data sections and several other features to improve the DX, like
+auto-completion and built-in label referencing.
+
+However, the chaining API is in alpha stage and instructions are only added in a
+step-by-step progress, following TDD practices.
+
+## Future plans
+
+For the future I'd like to add more features; please beware that this is no
+clear roadmap, just an unordered list of ideas that are driven by my own demand
+and interest. If you'd like to see some features, you're very welcome to PR! :)
+
+- [ ] Complete the chaining API (MVP-stage); e.g. via `Proxy` and interfaces
+- [ ] Parser for the NASM syntax and bridging to the chaining API
+- [ ] Executable file format support (Mach-O, ELF, PE)
+- [ ] Integration and testing with modern, widly-used linkers like `lld`
+- [ ] CLI `tsasm` with a NASM CLI compatibility
+- [ ] Support for more CPU architectures (namely `aarch64` would be cool)
 
 ## Learning Resources
 
