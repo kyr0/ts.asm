@@ -1,4 +1,4 @@
-import { asm } from '../../dist'
+import { asm } from '../dist'
 
 describe('asm.ts - jmp', () => {
   it.only('can define a bootsector using macro assembly and instruction pointer', () => {
