@@ -1,4 +1,5 @@
 import { asm } from '../dist'
+import { Buffer } from 'buffer'
 
 describe('asm.ts - jmp', () => {
   it.only('can define a bootsector using macro assembly and instruction pointer', () => {

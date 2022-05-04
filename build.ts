@@ -1,4 +1,3 @@
-import GlobalsPolyfills from '@esbuild-plugins/node-globals-polyfill'
 import { build } from 'esbuild'
 ;(async () => {
   await build({
@@ -8,13 +7,5 @@ import { build } from 'esbuild'
     sourcemap: true,
     minify: false,
     bundle: true,
-    plugins: [
-      // @ts-ignore
-      GlobalsPolyfills.default({
-        process: true,
-        buffer: true,
-        //define: { 'process.env.var': '"hello"' },
-      }),
-    ],
   })
 })()

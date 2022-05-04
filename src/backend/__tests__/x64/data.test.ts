@@ -1,4 +1,5 @@
 import { X64 } from '../../index'
+import { Buffer } from 'buffer'
 
 const compile = (_) => _.compile([])
 

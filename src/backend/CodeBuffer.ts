@@ -1,5 +1,6 @@
 import { IPushable } from './expression'
 import { TOctets } from './plugins/data/Data'
+import { Buffer } from 'buffer'
 
 class CodeBuffer implements IPushable {
   buf: Buffer
