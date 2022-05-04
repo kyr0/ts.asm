@@ -21,13 +21,15 @@
   "module": "./dist/index.js",
   "scripts": {
     "clean": "rimraf dist",
-    "prebuild": "yarn test",
+    "prebuild": "yarn clean",
     "build": "ts-node --esm build.ts",
-    "postbuild": "tsc",
+    "postbuild": "tsc && ts-node --esm cleanBuild.ts",
     "predeploy": "yarn build",
-    "deploy": "npm publish",
-    "pretest": "yarn clean",
-    "test": "jest"
+    "deploy": "yarn test",
+    "gen-index": "ts-node --esm genIndex.ts",
+    "postdeploy": "npm publish",
+    "test": "yarn node --experimental-vm-modules $(yarn bin jest)",
+    "test:frontend": "yarn node --experimental-vm-modules $(yarn bin jest) -i './src/__tests__'"
   },
   "directories": {
     "test": "test"
@@ -42,13 +44,17 @@
     "url": "https://github.com/kyr0/asm.ts/issues"
   },
   "dependencies": {
-    "buffer": "^6.0.3"
+    "asm.ts": "^0.0.2",
+    "buffer": "^6.0.3",
+    "esbuild-jest": "^0.5.0"
   },
   "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.17.9",
+    "@esbuild-plugins/node-globals-polyfill": "^0.1.1",
     "@types/jest": "^27.5.0",
     "@types/node": "^16.11.7",
     "esbuild": "^0.14.38",
-    "esbuild-plugin-import-glob": "^0.1.1",
+    "fast-glob": "^3.2.11",
     "jest": "^27.5.1",
     "rimraf": "^3.0.2",
     "ts-jest": "^27.1.3",

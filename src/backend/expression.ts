@@ -68,7 +68,9 @@ export abstract class Expression {
     }
   }
 
-  // Calculated during the second pass, when all expressions determine their final size.
+  /**
+   * Calculated during the second pass, when all expressions determine their final size.
+   */
   calcOffset() {
     if (this.offset !== OFFSET_UNKNOWN) return
     if (this.index === 0) this.offset = 0

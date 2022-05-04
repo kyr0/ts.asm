@@ -7,7 +7,6 @@ import { Expression } from '../../expression'
 import { Tnumber, Operands, Relative } from '../../operand'
 import { UInt64 } from '../../util'
 //import * as fs from 'fs'
-import { Buffer } from 'buffer'
 
 class PluginData extends Plugin {
   onAsm(asm: Asm<any>) {

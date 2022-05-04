@@ -1,8 +1,7 @@
-import { asm } from '../asm'
-import { Buffer } from 'buffer'
+import { asm } from '../../dist'
 
-describe('state', () => {
-  it('can define a bootsector using macro assembly and instruction pointer', () => {
+describe('asm.ts - jmp', () => {
+  it.only('can define a bootsector using macro assembly and instruction pointer', () => {
     const machineCode = asm()
       .code()
       .label('hang') // declare label
@@ -19,8 +18,8 @@ describe('state', () => {
       .dw(0xaa55)
       .assemble()
 
-    expect(machineCode.slice(0, 2)).toEqual(Buffer.from([0xeb, 0xfe]))
-    expect(machineCode.slice(510, 512)).toEqual(Buffer.from([0x55, 0xaa]))
+    expect(machineCode.slice(0, 2).toString('hex')).toEqual(Buffer.from([0xeb, 0xfe]).toString('hex'))
+    expect(machineCode.slice(510, 512).toString('hex')).toEqual(Buffer.from([0x55, 0xaa]).toString('hex'))
     expect(machineCode.byteLength).toEqual(512)
   })
 })

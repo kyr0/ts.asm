@@ -1,5 +1,5 @@
 import { State } from './state'
-import Asm, { IAsmOptions } from './assembler/Asm'
+import Asm, { IAsmOptions } from './backend/Asm'
 import { MacroFunction } from './macro'
 
 export interface CodeEncoder extends DataEncoder {

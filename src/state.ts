@@ -1,4 +1,4 @@
-import { IAsmOptions } from './assembler/Asm'
+import { IAsmOptions } from './backend/Asm'
 
 /**
  * Assembly instruction serialized
@@ -14,17 +14,6 @@ export interface Instruction {
 
 export interface State {
   options?: IAsmOptions
-  labelMap: { [key: string]: number }
-  opcode: Buffer
-  dataSegmentInstructions: Array<Instruction>
-}
-
-export const STATE: State = {
-  /**
-   * List of .data() section instructions to be
-   * encoded at the end of the .code() section.
-   */
-  dataSegmentInstructions: [],
 
   /**
    * Registry for labels.
@@ -32,10 +21,21 @@ export const STATE: State = {
    * Also used to make sure no duplicate labels are used,
    * and to make sure all labels referenced are defined.
    */
-  labelMap: {},
+  labelMap: { [key: string]: number }
 
   /**
    * Encoded opcode result
    */
-  opcode: null,
+  opcode: Buffer
+  /**
+   * List of .data() section instructions to be
+   * encoded at the end of the .code() section.
+   */
+  dataSegmentInstructions: Array<Instruction>
 }
+
+export const getDefaultState = (): State => ({
+  labelMap: {},
+  opcode: null,
+  dataSegmentInstructions: [],
+})

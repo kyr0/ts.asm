@@ -1,5 +1,4 @@
 import * as o from './plugins/x86/operand'
-import * as ii from './instruction'
 import { RegisterX86 } from './plugins/x86/operand/register'
 import Label from './Label'
 import { Expression } from './expression'
